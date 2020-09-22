@@ -1,0 +1,312 @@
+/*media-query */
+@media screen and (min-width: 450px) and (max-width: 800px) {
+    footer {
+        margin-bottom: 75px;
+    }
+    
+    /*고정 foot bar */
+    #foot-wrapper {
+        height: 75px;
+    }
+    
+    #foot-left, #foot-right{
+        height: 75px;
+    }
+    
+    #foot-left img {
+        
+        height: 50px;
+        margin-top: 12px;
+        margin-left: 25px;
+    }
+    
+    #foot-left span {
+        
+        font-size: 18px;
+        margin-top: 22px;
+        margin-right: 20px;
+    }
+    
+    #foot-right img {
+        
+        height: 50px;
+        margin-top: 12px;
+        margin-right: 25px;
+    }
+    
+    #foot-right span {
+        
+        font-size: 18px;
+        margin-top: 22px;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 800px) {
+    
+     /*header 부분 */
+    
+    header {
+        
+        height: 55px;
+    }
+    
+    #logo-wrapper img {
+        
+        height: 43px;
+        margin-top: 5px;
+    }
+    
+    h1 {
+        
+        font-size: 20px;
+        margin-top: 17px;
+        margin-left: 8px;
+    }
+    
+    h1  span {
+        font-size: 30px;
+    }
+    
+    /**
+     main 시작
+    */
+
+    /*slide-wrapper */
+     #slide-wrapper {
+        
+        height: 350px;
+    }
+    
+    /*apply-wrapper*/
+    
+    #apply-wrapper {
+        height: 380px;
+    }
+    #simple-form-1 {
+        float: left;
+        margin-right: 2rem;
+    }
+    #inf-cons {
+        float: left;
+    }
+    
+    /*service-wrapper */
+    #service-wrapper {
+        height: 500px;
+    }
+    
+    /*footer */
+    footer {
+        
+        padding: 2rem;
+        font-size: 13px;
+        text-align: center;
+
+    }
+    
+}
+
+
+
+@media screen and (min-width: 801px) {
+    
+    /*header 부분 */
+    
+    header {
+        
+        height: 55px;
+    }
+    
+    #logo-wrapper img {
+        
+        height: 43px;
+        margin-top: 5px;
+    }
+    
+    h1 {
+        
+        font-size: 20px;
+        margin-top: 17px;
+        margin-left: 8px;
+    }
+    
+    h1  span {
+        font-size: 30px;
+    }
+    
+    /**
+     main 시작
+    */
+
+    /*slide-wrapper */
+     #slide-wrapper {
+        
+        height: 500px;
+    }
+    
+     @media screen and (min-width: 800px) {
+     
+    /*apply-wrapper*/
+    
+    #apply-wrapper {
+        width: 65%;
+        height: 380px;
+        float: left;
+        
+    }
+    
+    #simple-form-1 {
+        float: left;
+        margin-right: 1rem;
+    }
+    
+    input, select {
+    
+    padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+    width: 50px;
+    }
+    
+    .phone {
+        width: 50px;
+        
+    }
+    #inf-cons {
+        float: left;
+    }
+    
+    #spe-button-s {
+        display: none;
+    }
+    
+         
+         
+    
+    #phone-800{
+        
+        display: block;
+
+    }
+    
+}
+    
+    /*footer */
+    footer {
+        font-size: 13px;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 0;
+        
+    }
+    
+    #foot-wrapper {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px) {
+    
+    #phone-up-inner {
+        padding-left: 7px;
+    }
+    
+    #phone-middle-inner {
+        padding-left: 7px;
+    }
+    
+    #phone-down-inner {
+        padding-left: 0px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    
+   /*header 부분 */
+    
+    header {
+        
+        height: 80px;
+    }
+
+    
+    #logo-wrapper img {
+        
+        height: 50px;
+        margin-top: 15px;
+    }
+    
+    h1 {
+        
+        font-size: 24px;
+        margin-top: 25px;
+    }
+    
+    h1  span {
+        font-size: 35px;
+    }
+    
+    #hamburger {
+        display: none;
+    }
+    
+    #menu-800 {
+        display: block;
+    } 
+    
+    /*service-wrapper   부분 */
+ 
+    #service-wrapper-s {
+        display: none;
+    }
+    
+    #service-wrapper-b {
+        
+        clear: both;
+        display: block;
+        padding: 2rem 1rem 2rem 1rem;
+        overflow: hidden;
+    
+    }
+    
+    #service-b {
+        
+        margin: 30px 20px 20px 40px;
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    
+    #service-b div {
+        
+        width: 20%;
+        padding-bottom: 15%;
+        background-color: antiquewhite;
+    }
+    
+    /*서비스 설명 배경사진 */
+    #service-b div:first-child {
+        
+        background-image: url("../image/service/service-home.jpeg");
+        background-size: contain;
+    }
+    
+    #service-b div:nth-child(2) {
+        
+        background-image: url("../image/service/service-office.jpeg");
+        background-size: contain;
+    }
+    
+    #service-b div:nth-child(3) {
+        
+        background-image: url("../image/service/service-box.jpeg");
+        background-size: contain;
+    }
+    
+    #service-b div:last-child {
+        
+        background-image: url("../image/service/service-cleaning.jpeg");
+        background-size: contain;
+    }
+    /*서비스 설명 배경사진 끝*/
+
+}

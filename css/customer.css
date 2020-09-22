@@ -1,0 +1,29 @@
+/* island page 공통 */
+
+main {
+    background-color: RGB(58, 123, 188);
+    padding: 15px;
+}
+
+#main-wrapper {
+    
+    padding: 15px;
+    background-color: white;
+}
+
+
+h2 {
+    
+    font-size: 30px;
+    line-height: 50px;
+    background-color: RGB(20, 76, 133);
+
+}
+
+/* island page 공통 여기까지 */
+
+h3 {
+    
+    text-align: left;
+    font-size: 20px;
+}

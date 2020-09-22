@@ -1,0 +1,71 @@
+/* island page 공통 */
+
+main {
+    background-color: RGB(58, 123, 188);
+    padding: 15px;
+}
+
+#main-wrapper {
+    
+    padding: 15px;
+    background-color: white;
+}
+
+
+h2 {
+    
+    font-size: 30px;
+    line-height: 50px;
+    background-color: RGB(20, 76, 133);
+
+}
+
+/* island page 공통 여기까지 */
+
+h3 {
+    
+    font-size: 20px;
+    line-height: 100px;
+    display: block;
+    float: left;
+    
+}
+
+
+
+.services img {
+    
+    display: block;
+    height: 100px;
+    float: right;
+    
+}
+
+.services article {
+    clear: both;
+    padding-top: 10px;
+}
+
+.img-h-wrapper {
+    
+    padding: 10px;
+    
+}
+
+@media screen and (min-width: 540px) and (max-width: 800px) {
+    
+    .services img {
+        
+        height: 150px;
+    }
+    
+    h3 {
+        
+        line-height: 150px;
+        font-size: 28px;
+    }
+    
+} 
+
+
+

@@ -1,0 +1,522 @@
+/** 
+ * 폰트
+**/
+
+@font-face {
+    src: url(../fonts/BlackHanSans-Regular.ttf);
+    font-family: 'logo';
+}
+
+@font-face {
+    src: url(../fonts/SCDream4.ttf);
+    font-family: 'SCDream4';
+}
+
+@font-face {
+    src: url(../fonts/SCDream5.ttf);
+    font-family: 'SCDream5';
+}
+
+@font-face {
+    src: url(../fonts/TmonMonsori.ttf);
+    font-family: 'Monsori';
+}
+
+body {
+    font-family: SCDream5, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    
+    font-size: 23px;
+    text-align: center;
+    color: white;
+    font-family: Monsori;
+    text-shadow: 2px 2px 1px #333;
+    margin-bottom: 10px;
+}
+
+h3 {
+    
+    font-size: 15px;
+    text-align: center;
+    color: #555;
+    
+}
+
+/* header 부분 */
+header {
+    
+    height: 55px;
+}
+
+#logo-wrapper img {
+    height: 40px;
+    float: left;
+    margin-top: 8px;
+    margin-left: 7px;
+}
+
+h1 {
+    
+    float: left;
+    font-family: 'logo', '굴림';
+    font-size: 15px;
+    margin-top: 19px;
+    margin-left: 5px;
+    
+}
+
+h1 span {
+    font-size: 25px;
+    color: RGB(0, 70, 138);
+    background: -webkit-linear-gradient(-45deg, RGB(12, 83,150), RGB(0, 74,147), RGB(14, 36, 100), RGB(15, 21, 80));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hamburger {
+    height: 45px;
+    margin-top: 5px;
+    float: right;
+    margin-right: 20px;
+
+}
+
+#menu-800 li {
+    float: left;
+    font-weight: bold;
+    padding-right: 15px;
+    padding-left: 15px;
+    line-height: 40px;
+    border-right: 2px solid black;
+}
+
+#menu-800 li:hover {
+    background-color: RGB(232, 234, 237);
+}
+
+#menu-800 li:last-child {
+    border-right: none;
+}
+#menu-800 {
+    
+    float: right;
+    padding-top: 20px;
+    margin-right: 40px;
+    display: none;
+}
+
+/*토글 메뉴 토글 메뉴 토글 메뉴 */
+
+#menu-toggle{
+    
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 230px;
+    height: 100%;
+    background-color: RGB(162, 202, 242);
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+
+#menu-toggle div:first-child {
+    height: 55px;
+    border-bottom: 1px solid RGB(236, 236, 236);
+}
+
+#menu-toggle div:first-child img {
+    
+    height: 20px;
+    float: right;
+    margin-top: 11px;
+    margin-right: 9px;
+    padding: 6px;
+}
+
+#menu-toggle #menu-close-button:hover {
+    
+    background-color: RGB(121, 166, 209);
+}
+
+#menu-toggle li {
+    
+    padding-left: 15px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid RGB(236, 236, 236);
+}
+
+#menu-toggle li:hover {
+    
+    background-color: RGB(121, 166, 209);
+}
+
+#menu-toggle.hide {
+    
+    display: none;
+    
+}
+
+
+
+/**
+  main 시작
+*/
+
+/*slide-wrapper */
+
+#slide-wrapper {
+    height: 350px;
+    background-image: url(../image/slide-1.jpg);
+    background-size: cover;
+}
+
+
+/*apply-wrapper */
+
+#apply-wrapper {
+    
+    background-color: RGB(22, 76, 134);
+    width: 100%;
+    height: 500px;
+    padding-top: 20px;
+    
+}
+
+
+#apply-wrapper-inner {
+    
+    margin: 20px;
+    margin-top: 0;
+}
+
+
+#simple-form-wrapper {
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    margin-top: 1.5rem;
+    background-color: white;
+    box-shadow: 5px 5px 2px #333;
+}
+
+#simple-form-12 {
+    margin-bottom: 20px;
+}
+
+.phone {
+    width: 60px;
+}
+
+table {
+    color: black;
+}
+
+th {
+    display: block;
+    width: 80px;
+    font-size: 14px;
+    height: 2.1em;
+    text-align: left;
+
+}
+
+td {
+    
+    height: 2.1em;
+}
+
+input, select {
+    
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+}
+
+#simple-customer-name{
+    width: 90px;
+}
+
+#inf-cons {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+#simple-submit-button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    font-size: 25px;
+    background-color: RGB(247, 189, 42);
+    margin-bottom: 10px;
+}
+
+/*phone-800 */
+
+#phone-800 {
+    
+    display: none;
+    float: right;
+    width: 35%;
+    height: 400px;
+    background-color: RGB(241,243,244);
+    
+}
+
+/*phone-800 UP */
+
+#phone-800-up {
+    height: 38%;
+}
+
+#phone-800-up img {
+    
+    height: 50px;
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+#phone-up-inner {
+    
+    padding: 30px;
+    padding-top: 50px;
+}
+#phone-800-up span {
+    
+    display: block;
+    margin-top: 4px;
+    font-size: 25px;
+
+   
+}
+
+
+#phone-up-inner div:last-child {
+    
+    clear:both;
+    font-size: 20px;
+    margin-top: 13px;
+    margin-left: 12px;
+}
+
+/*phone-800 MIDDLE */
+
+
+#phone-800-middle {
+    height: 32%;
+}
+
+#phone-middle-inner img {
+    
+    height: 70px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 8px;
+}
+
+#phone-middle-inner {
+    
+    padding: 30px;
+}
+
+#phone-middle-inner span {
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+}
+/*phone-800 DOWN */
+
+#phone-800-down {
+    height: 30%;
+}
+
+#phone-down-inner {
+    
+    padding: 30px;
+}
+
+#phone-down-inner button{
+    height: 60px;
+    width: 250px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+/*service-wrapper */
+
+#service-wrapper-s .blue {
+    color: RGB(206, 231, 255);
+}
+
+#service-wrapper-b .blue {
+    color: RGB(206, 231, 255);
+}
+
+#service-wrapper-s {
+    
+    padding: 1rem;
+    padding-top: 2rem;
+    clear:both;
+}
+
+
+.service-2 article {
+    width: 40%;
+    padding-bottom: 30%;
+    float: left;
+
+}
+.service-2 article:last-child {
+    float: right;
+}
+
+/*서비스 소개란 배경사진 넣기 */
+.service-2.one article:first-child {
+    
+    background-image: url("../image/service/service-home.jpeg");
+    background-size:contain;
+}
+
+.service-2.one article:last-child {
+    
+    background-image: url("../image/service/service-office.jpeg");
+    background-size:contain;
+}
+
+.service-2.two article:first-child {
+    
+    background-image: url("../image/service/service-box.jpeg");
+    background-size:contain;
+}
+
+.service-2.two article:last-child {
+    
+    background-image: url("../image/service/service-cleaning.jpeg");
+    background-size:contain;
+}
+/*서비스 소개란 배경사진 넣기 끝*/
+
+
+.service-2 {
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top: 5%;
+    padding-bottom: 30%;
+    margin-bottom: 10px;
+}
+
+.service-2:last-child {
+    
+    padding-top: 0;
+}
+
+#service-wrapper-b {
+    display: none;
+}
+
+
+
+
+/**
+  main 끝
+*/
+
+/*footer */
+footer {
+    
+    
+    height: 100px;
+    background-color: RGB(240, 240, 240);
+    font-size: 12px;
+    line-height: 17px;
+    color: RGB(100, 100, 100);
+    padding: 1rem;
+    margin-bottom: 60px;
+    
+}
+
+/*foot-wrapper 고정foot-bar */
+#foot-wrapper {
+    
+    width: 100%;
+    z-index: 8;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+}
+
+
+
+#foot-left {
+    background-color: burlywood;
+    height: 60px;
+    width: 50%;
+    float: left;
+    opacity: 0.85;
+}
+
+#foot-left:hover {
+    opacity: 1;
+}
+
+#foot-left img {
+    
+    display: inline-block;
+    float: left;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 15px;
+        
+    
+}
+
+#foot-left span {
+    
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
+
+#foot-right {
+    
+    background-color: beige;
+    height: 60px;
+    width: 50%;
+    float: right;
+    opacity: 0.85;
+}
+
+#foot-right:hover {
+    opacity: 1;
+}
+
+#foot-right span {
+    
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+#foot-right img {
+    
+    display: inline-block;
+    float: right;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 15px;
+    
+}
+
