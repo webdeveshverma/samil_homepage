@@ -24,62 +24,59 @@
 
                         echo 'DB접속에러: '. $e->getMessage();
                     } 
+               
+            $stmt = $db->prepare("SELECT * FROM specific_form WHERE ID='".$_GET['id']."'"); 
+            $stmt->execute(); 
+            $row = $stmt->fetch();
+        
+            echo($row['customer_name']);
+        
 
-
-            $records =$db->query('select * from specific_form');
         ?>
     
+
         <table>
         
             <tr>
                 <th>이름</th>
-                <td></td>
+                <td><?php echo($row['customer_name']); ?></td>
             </tr>
             
             <tr>
                 <th>전화번호</th>
-                <td></td>
+                <td><?php echo($row['phone_1']."-".$row['phone_2']."-".$row['phone_3']); ?></td>
             </tr>
             
             <tr>
                 <th>이사 날짜</th>
-                <td></td>
+                <td><?php echo($row['moving_date']); ?></td>
             </tr>
             
             <tr>
                 <th>이사 종류/ 서비스 종류</th>
-                <td></td>
+                <td><?php echo($row['24_kind']."/".$row['service_kind']); ?></td>
             </tr>
             
             <tr>
                 <th>현재 주소, 층수</th>
-                <td></td>
+                <td><?php echo($row['now_address']."/".$row['specific_now_address']."/".$row['now_floor']."층"); ?></td>
             </tr>
             
             <tr>
                 <th>이사가는곳, 층수</th>
-                <td></td>
+                <td><?php echo($row['after_address']."/".$row['specific_after_address']."/".$row['after_floor']."층"); ?></td>
             </tr>
             
             <tr>
                 <th>현재 집 평수</th>
-                <td></td>
+                <td><?php echo($row['dimension'])?></td>
             </tr>
             
-            <?php
             
-            <tr>
-                <th></th>
-                <td></td>
-            </tr>
                 
-            ?>
-            
-            
-            
-        
         </table>
-        
+
+    
     </body>
     
     
