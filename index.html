@@ -143,6 +143,7 @@ function DaumPostcode_now() {
             
             
             <!--간편 견적신청 form -->
+          
             <div id="apply-wrapper">
                 
                 <div id="apply-wrapper-inner">
@@ -198,7 +199,7 @@ function DaumPostcode_now() {
 
                                     <tr>
                                         <th>고객명</th>
-                                        <td><input id="simple_customer-name" name="customer_name" type="text"></td>
+                                        <td><input id="simple-customer-name" name="customer_name" type="text"></td>
                                     </tr>
 
                                     <tr>
@@ -224,7 +225,8 @@ function DaumPostcode_now() {
                                     <tr>
                                         <th>현주소</th>
                                         <td>
-                                            <input type="text" id="simple_now_address" name="simple_now_address">
+                                            <input type="text" id="simple_now_address" name="simple_now_address"
+                                            width="150">
                                             <input id="now_address_button" type="button" onclick="DaumPostcode_now()" value="주소찾기"><br>
                                         </td>
                                     </tr>
@@ -232,7 +234,7 @@ function DaumPostcode_now() {
                                     <tr>
                                         <th>도착지</th>
                                         <td>
-                                            <input type="text" id="simple_after_address" name="simple_after_address">
+                                            <input type="text" id="simple_after_address" name="simple_after_address" width="150">
                                             <input id="after_address_button" type="button" onclick="DaumPostcode_after()" value="주소찾기"><br>
                                         </td>
                                     </tr>
@@ -251,7 +253,7 @@ function DaumPostcode_now() {
 
                         </form>
 
-                            <button id="spe-button-s">상세한 견적요청 바로가기</button>
+                            <button id="spe-button-s" onclick = "location.href = 'html/inquiry.html'">상세한 견적요청 바로가기</button>
 
                         </div>
 
@@ -260,6 +262,7 @@ function DaumPostcode_now() {
                 </div>
                 
             </div>
+            
         
             <div id="phone-800">
                 
@@ -290,7 +293,7 @@ function DaumPostcode_now() {
                 <div id="phone-800-down">
                     
                     <div id="phone-down-inner">
-                        <button>상세한 견적요청 바로가기</button>
+                        <button onclick = "location.href = 'html/inquiry.html'">상세한 견적요청 바로가기</button>
                     </div>
                     
                 
@@ -339,10 +342,10 @@ function DaumPostcode_now() {
             <div id="footer-inner">
             
                 삼일 익스프레스 | 대표: 이치웅 <br>
-                사업자 등록번호:<br>
+                사업자 등록번호: 639-75-00072<br>
                 통신판매업 신고:<br>
-                대표번호:<br>
-                주소:<br>
+                대표번호: 053-965-3124<br>
+                주소: 대구광역시 수성구 효행로 2길 31<br>
                 Copyright &copy; 삼일익스프레스. All rights reserved.
                     
             </div>
@@ -370,11 +373,7 @@ function DaumPostcode_now() {
         
         <!-- javascript 불러오기 -->
         <script type="text/javascript" src="javascript/main.js"></script>
-        
-        <!-- date picker -->
-        <script>
-            flatpickr("#flatpickr", {});
-        </script>
+  
         
     
     

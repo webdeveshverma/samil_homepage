@@ -182,21 +182,20 @@ h1 span {
 
 /*apply-wrapper */
 
+
 #apply-wrapper {
     
     background-color: RGB(22, 76, 134);
     width: 100%;
-    height: 500px;
-    padding-top: 20px;
+    
     
 }
-
 
 #apply-wrapper-inner {
     
-    margin: 20px;
-    margin-top: 0;
+    padding: 20px;
 }
+
 
 
 #simple-form-wrapper {
@@ -235,11 +234,15 @@ td {
 input, select {
     
     padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+
 }
 
-#simple-customer-name{
-    width: 90px;
+input#simple_now_address,
+input#simple_after_address{
+    
+    width: 140px; 
 }
+
 
 #inf-cons {
     margin-bottom: 5px;
@@ -255,6 +258,8 @@ input, select {
     margin-bottom: 10px;
 }
 
+
+
 /*phone-800 */
 
 #phone-800 {
@@ -262,7 +267,7 @@ input, select {
     display: none;
     float: right;
     width: 35%;
-    height: 400px;
+    height: 383px;
     background-color: RGB(241,243,244);
     
 }
