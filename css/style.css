@@ -47,11 +47,25 @@ h3 {
     color: #555;
     
 }
+main {
+    
+  background-image: url("../image/background.jpg");
+  background-repeat: repeat;
+}
+
+#main-wrapper {
+    
+    max-width: 1001px;
+    margin: 0 auto;
+ 
+   
+}
 
 /* header 부분 */
 header {
     
     height: 55px;
+    border-bottom: solid 1px RGB(234, 235, 235);
 }
 
 #logo-wrapper img {
@@ -179,6 +193,24 @@ h1 span {
     background-size: cover;
 }
 
+#slide-text-wrapper {
+    
+    padding: 30px;
+}
+
+#slide-text {
+    
+    width: 70%;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 18px;
+    
+}
+
+
+
+
 
 /*apply-wrapper */
 
@@ -268,8 +300,16 @@ input#simple_after_address{
     float: right;
     width: 35%;
     height: 383px;
-    background-color: RGB(241,243,244);
+    background-image: url("../image/customer-center.jpg");
+    background-size: cover;
     
+}
+
+#phone-800-inner {
+    background-color: RGBA(255, 255, 255, 0.7);
+    margin: 5px;
+    border-radius: 20px;
+  
 }
 
 /*phone-800 UP */
@@ -368,8 +408,13 @@ input#simple_after_address{
     padding: 1rem;
     padding-top: 2rem;
     clear:both;
+    background-color: white;
 }
 
+#service-wrapper-b {
+    
+    background-color: white;
+}
 
 .service-2 article {
     width: 40%;

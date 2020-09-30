@@ -1,14 +1,17 @@
 /* island page 공통 */
 
 main {
-    background-color: RGB(58, 123, 188);
+    background-color: RGB(234,238,242);
     padding: 15px;
 }
 
 #main-wrapper {
     
+    max-width: 800px;
+    margin: 0 auto;
     padding: 15px;
     background-color: white;
+    box-shadow: 5px 5px 2px #333;
 }
 
 
@@ -25,25 +28,117 @@ h2 {
 
 h3 {
     
-    
     font-size: 20px;
     text-align: left;
     line-height: 40px;
 
 }
 
-.process {
+article {
     
-    height: 200px;
+    margin-bottom: 30px;
+}
+.information-inner {
+   
+    overflow: hidden;
     width: 100%;
-    background-color:  antiquewhite;
-    margin-bottom: 10px;
+    background-color: RGB(249, 247, 238);
+    padding-top: 10px;
 }
 
-#main-wrapper span {
+#information-small {
     
     display: inline-block;
     margin-top: 20px;
     font-size: 13px;
     color: #555;
+}
+
+
+/* 이사 진행과정 */
+
+
+.set-wrapper {
+    float: left;
+    width: 25%;
+}
+
+.step {
+    
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    float: left;
+    color: white;
+}
+
+.pink {
+    
+    background-color: RGB(208,71,104);
+}
+
+.orange {
+    
+    background-color:darkorange;
+}
+
+.green {
+    
+    background-color: cadetblue;
+}
+.step:nth-child(2) {
+    
+    background-color:darkorange;
+}
+
+.step span:first-child {
+    
+    display: inline-block;
+    margin-top: 13px;
+    color: white;
+}
+
+.step span:last-child {
+    
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+    color: white;
+}
+
+
+
+.set-wrapper img {
+    float: right;
+    height: 20px;
+    margin-top: 18px;
+}
+
+.set-wrapper>span {
+    display: block;
+    clear: both;
+    margin-bottom: 25px;
+    color: RGB(241, 146, 146);
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.set-wrapper div:last-child {
+    padding: 5px;
+}
+
+.set-wrapper div {
+    
+    clear: both;
+}
+
+@media screen and (min-width: 640px) {
+    
+    
 }

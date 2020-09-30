@@ -1,14 +1,17 @@
 /* island page 공통 */
 
 main {
-    background-color: RGB(58, 123, 188);
+    background-color: RGB(234,238,242);
     padding: 15px;
 }
 
 #main-wrapper {
     
+    max-width: 800px;
+    margin: 0 auto;
     padding: 15px;
     background-color: white;
+    box-shadow: 5px 5px 2px #333;
 }
 
 
@@ -67,7 +70,7 @@ h3 {
     
 } 
 
-@media screen and (min-width: 801px) and (max-width: 1200px) {
+@media screen and (min-width: 801px) {
     
     .services img {
         
@@ -82,23 +85,4 @@ h3 {
     }
     
 } 
-
-@media screen and (min-width: 1201px) {
-    
-    
- 
-    .services img {
-        
-        height: 300px;
-    }
-    
-    h3 {
-        
-        line-height: 300px;
-        font-size: 35px;
-    }
-    
-}
-
-
 
