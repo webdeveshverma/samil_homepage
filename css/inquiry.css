@@ -26,4 +26,70 @@ h2 {
 
 /* island page 공통 여기까지 */
 
+table {
+    
+    margin-top: 20px;
+    border: 3px solid RGB(239, 235, 215);
+    width: 100%;
+}
+input, select, button {
+    
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    margin-bottom :5px;
+}
+
+input[name=phone_2], input[name=phone_3] {
+    
+    width: 58px;
+}
+
+input[name=now_floor], input[name=after_floor], input[name=dimension] {
+    
+    width :60px;
+}
+
+input[name=customer_name] {
+    
+    width: 80px;
+}
+
+th {
+    width: 80px;
+    text-align: left;
+    background-color: RGB(242, 237, 215);
+    padding-left: 5px;
+    
+    
+}
+
+td {
+    
+    height: 40px;
+    line-height: 40px;
+    background-color: RGB(249, 247, 238);
+    padding-left: 5px;
+}
+
+#specific-form-2 td input[type=text] {
+    width: 100%;
+}
+
+#specific-form-2 td {
+    
+    padding-right: 20px;
+}
+
+#textarea {
+    
+    display: block;
+    margin-top: 20px;
+}
+
+textarea {
+    
+    width: 100%;
+    height: 100px;
+
+}
+
 
