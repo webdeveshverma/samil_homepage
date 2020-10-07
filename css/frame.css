@@ -192,7 +192,6 @@ footer {
     line-height: 17px;
     color: RGB(100, 100, 100);
     padding: 1rem;
-    margin-bottom: 60px;
     
 }
 
@@ -277,9 +276,6 @@ footer {
 
 /*media-query media-query media-query media-query media-query media-query */
 @media screen and (min-width: 450px) and (max-width: 800px) {
-    footer {
-        margin-bottom: 75px;
-    }
     
     /*고정 foot bar */
     #foot-wrapper {

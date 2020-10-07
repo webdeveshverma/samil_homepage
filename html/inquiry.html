@@ -1,501 +1,491 @@
 <html>
 
-    <head> 
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <title>삼일 이사|익스프레스</title>
-        
-        
-        <link rel="stylesheet" href="../css/reset.css">
-        <link rel="stylesheet" href="../css/frame.css">
-        <link rel="stylesheet" href="../css/inquiry.css">
-        
-        <!-- date-picker -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        
-        <!-- daum주소 검색 -->
-        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script type="text/javascript">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>삼일 이사|익스프레스</title>
+
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/inquiry.css">
+
+    <!-- date-picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- daum주소 검색 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript">
         //now 주소 용
 
         function DaumPostcode_now() {
-    new daum.Postcode({
-        oncomplete: function(data) {
+            new daum.Postcode({
+                oncomplete: function(data) {
 
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var extraRoadAddr = ''; // 참고 항목 변수 
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수 
 
-            var completeAddr = '';
+                    var completeAddr = '';
 
-            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    var completeAddr = roadAddr + extraRoadAddr;
+
+                    document.getElementById('simple_now_address').value = completeAddr;
+
+
+
                 }
-            // 건물명이 있고, 공동주택일 경우 추가한다.
-            if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-            if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-                    
-            var completeAddr = roadAddr + extraRoadAddr;
-                    
-            document.getElementById('simple_now_address').value = completeAddr;
-                        
-
-
-            }
-        }).open();
-    }
+            }).open();
+        }
 
         //after 주소 용
 
         function DaumPostcode_after() {
-    new daum.Postcode({
-        oncomplete: function(data) {
+            new daum.Postcode({
+                oncomplete: function(data) {
 
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var extraRoadAddr = ''; // 참고 항목 변수 
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수 
 
-            var completeAddr = '';
+                    var completeAddr = '';
 
-            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    var completeAddr = roadAddr + extraRoadAddr;
+
+                    document.getElementById('simple_after_address').value = completeAddr;
+
+
+
                 }
-            // 건물명이 있고, 공동주택일 경우 추가한다.
-            if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-            if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-                    
-            var completeAddr = roadAddr + extraRoadAddr;
-                    
-            document.getElementById('simple_after_address').value = completeAddr;
-                        
+            }).open();
+        }
+
+    </script>
 
 
-            }
-        }).open();
-    }
-            
-        </script>
-        
-        
-        
-        
-    </head>
-    
-    
-    <body>
-        
-        <header>
-            <div id="logo-wrapper">
-                <a href="../index.html">
-                    <img src="../image/logo.svg">
-                    <h1><span>삼일</span> 이사|익스프레스</h1>
-                </a>
-            
-            </div>
-            <div id="menu-800">
-                <ul>
-                    <li><a href="./service.html">이사 서비스</a></li>
-                    <li><a href="./cleaning.html">입주 청소</a></li>
-                    <li><a href="./information.html">이사 정보</a></li>
-                    <li><a href="./customer.html">고객센터</a></li>
-                    <li><a href="./inquiry.html">견적 문의 게시판</a></li>
-                
-                </ul>
-            
-            </div>
-            <img id="hamburger" src="../image/bars-solid.svg">
-        
-        </header>
-        
-        <div id="menu-toggle" class="hide">
-            <div><img id="menu-close-button" src="../image/close-image.png"></div>
+
+
+</head>
+
+
+<body>
+
+    <header>
+        <div id="logo-wrapper">
+            <a href="../index.html">
+                <img src="../image/logo.svg">
+                <h1><span>삼일</span> 이사|익스프레스</h1>
+            </a>
+
+        </div>
+        <div id="menu-800">
             <ul>
                 <li><a href="./service.html">이사 서비스</a></li>
-                    <li><a href="./cleaning.html">입주 청소</a></li>
-                    <li><a href="./information.html">이사 정보</a></li>
-                    <li><a href="./customer.html">고객센터</a></li>
-                    <li><a href="./inquiry.html">견적 문의 게시판</a></li>
+                <li><a href="./cleaning.html">입주 청소</a></li>
+                <li><a href="./information.html">이사 정보</a></li>
+                <li><a href="./customer.html">고객센터</a></li>
+                <li><a href="./inquiry.html">견적 문의 게시판</a></li>
+
             </ul>
-        
+
         </div>
-        
-        <main>
-            <div id="main-wrapper">
-                <h2>상세 견적 문의하기</h2>
-                <p>인터넷을 통해 간편히, 실제 견적과 최대한 가깝게 측정해드립니다.</p> 
-                <p>최대 반나절 안에 입력하신 핸드폰 번호로 견적을 안내해 드리고 있습니다.</p>
-                <strong>&#8251;실제 견적은 방문견적을 받아보셔야 알 수 있습니다.</strong>
-                
-                <div id="form-wrapper">
-                    <form method="POST" action="../php/specific_form.php">
-                    
-                        <div id="specific-form-1">
-                            <table>
-                            
-                                <tr>
-                                    
-                                    <th>성함</th>
-                                    <td>
-                                        <input id="customer-name" name="customer_name" type="text">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>핸드폰<br>번호</th>
-                                    <td>
-                                        
-                                        <select name="phone_1">
+        <img id="hamburger" src="../image/bars-solid.svg">
 
-                                            <option value="010" selectec>010</option>
-                                            <option value="011">011</option>
-                                            <option value="019">019</option>
-                                            <option value="016">016</option>
-                                            <option value="017">017</option>
-                                            <option value="018">018</option>
+    </header>
 
-                                        </select> -  
-                                        <input name="phone_2" type="text"> -
-                                        <input name="phone_3" type="text">
-                                        
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>이사 날짜</th>
-                                    <td>
-                                    
-                                        <input type="date" name="moving_date">
-                                        
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>이사 종류</th>
-                                    <td>
-                                    
-                                        <select name="24_kind">
+    <div id="menu-toggle" class="hide">
+        <div><img id="menu-close-button" src="../image/close-image.png"></div>
+        <ul>
+            <li><a href="./service.html">이사 서비스</a></li>
+            <li><a href="./cleaning.html">입주 청소</a></li>
+            <li><a href="./information.html">이사 정보</a></li>
+            <li><a href="./customer.html">고객센터</a></li>
+            <li><a href="./inquiry.html">견적 문의 게시판</a></li>
+        </ul>
 
-                                            <option value="가정이사">가정이사</option>
-                                            <option value="원룸이사">원룸이사</option>
-                                            <option value="사무실 이사">사무실 이사</option>
-                                            <option value="차량만 이용">차량만 이용</option>
+    </div>
 
-                                        </select>
-                                        
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>서비스<br> 종류</th>
-                                    <td>
-                                    
-                                        <select name="service_kind">
+    <main>
+        <div id="main-wrapper">
+            <h2>상세 견적 문의하기</h2>
+            <p>인터넷을 통해 간편히, 실제 견적과 최대한 가깝게 측정해드립니다.</p>
+            <p>최대 반나절 안에 입력하신 핸드폰 번호로 견적을 안내해 드리고 있습니다.</p>
+            <strong>&#8251;실제 견적은 방문견적을 받아보셔야 알 수 있습니다.</strong>
 
-                                            <option value="포장이사">포장이사</option>
-                                            <option value="일반이사">일반이사</option>
-                                            <option value="보관이사">보관이사</option>
+            <div id="form-wrapper">
+                <form method="POST" action="../php/specific_form.php">
 
-                                        </select>
-                                    
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>현재집<br> 주소</th>
-                                    <td>
-                                        
-                                        <input type="text" name="now_address">
-                                        <input type="text" name="specific_now_address" placeholder="아파트명 혹은 빌라명 까지 입력해주세요.">
-                                        
-                                        <input id="now_address_button" type="button" onclick="DaumPostcode_now()" value="주소찾기"><br>
-                                        
-                                    
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>현재집<br> 층수</th>
-                                    <td>
-                                        <input type="number" name="now_floor">층
-                                    
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>이사가시는곳</th>
-                                    <td>
-                                    
-                                            <input type="text" name="after_address">
-                                            <input type="text" name="specific_after_address" placeholder="아파트명 혹은 빌라명 까지 입력해주세요.">
-                                        
-                                            <input id="after_address_button" type="button" onclick="DaumPostcode_after()" value="주소찾기"><br>
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>이사가시는곳 층수</th>
-                                    <td>
-                                        <input type="number" name="after_floor">층
-                                    
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>현재 집<br> 평수</th>
-                                    <td>
-                                        <input type="number" name="dimension">평
-                                    </td>
-                                
-                                </tr>
-                                
-                            
-                            </table>
-                        
+                    <div id="specific-form-1">
+                        <table>
+
+                            <tr>
+
+                                <th>성함</th>
+                                <td>
+                                    <input id="customer-name" name="customer_name" type="text" required>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>핸드폰<br>번호</th>
+                                <td>
+
+                                    <select name="phone_1">
+
+                                        <option value="010" selectec>010</option>
+                                        <option value="011">011</option>
+                                        <option value="019">019</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+
+                                    </select> -
+                                    <input name="phone_2" type="text" required> -
+                                    <input name="phone_3" type="text" required>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>이사 날짜</th>
+                                <td>
+
+                                    <input type="date" name="moving_date" required>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>이사 종류</th>
+                                <td>
+
+                                    <select name="24_kind">
+
+                                        <option value="가정이사">가정이사</option>
+                                        <option value="원룸이사">원룸이사</option>
+                                        <option value="사무실 이사">사무실 이사</option>
+                                        <option value="차량만 이용">차량만 이용</option>
+
+                                    </select>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>서비스<br> 종류</th>
+                                <td>
+
+                                    <select name="service_kind">
+
+                                        <option value="포장이사">포장이사</option>
+                                        <option value="일반이사">일반이사</option>
+                                        <option value="보관이사">보관이사</option>
+
+                                    </select>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>현재집<br> 주소</th>
+                                <td>
+
+                                    <input type="text" name="now_address" required>
+                                    <input type="text" name="specific_now_address" placeholder="아파트명 혹은 빌라명 까지 입력해주세요.">
+
+                                    <input id="now_address_button" type="button" onclick="DaumPostcode_now()" value="주소찾기"><br>
+
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>현재집<br> 층수</th>
+                                <td>
+                                    <input type="number" name="now_floor" required>층
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>이사가시는곳</th>
+                                <td>
+
+                                    <input type="text" name="after_address" required>
+                                    <input type="text" name="specific_after_address" placeholder="아파트명 혹은 빌라명 까지 입력해주세요.">
+
+                                    <input id="after_address_button" type="button" onclick="DaumPostcode_after()" value="주소찾기"><br>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>이사가시는곳 층수</th>
+                                <td>
+                                    <input type="number" name="after_floor" required>층
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>현재 집<br> 평수</th>
+                                <td>
+                                    <input type="number" name="dimension" required>평
+                                </td>
+
+                            </tr>
+
+
+                        </table>
+
+                    </div>
+
+                    <div id="specific-form-2">
+
+                        <table>
+                            <tr>
+
+                                <th>소파</th>
+                                <td>
+                                    <input type="radio" name="sofa" value="1" onclick="change('sofa-specific')">있음
+                                    <input type="radio" name="sofa" value="0" onclick="change('sofa-specific')" checked="checked">없음
+                                    <input type="text" id="sofa-specific" name="sofa_specific" class="hidden" placeholder="몇인용인지, 개수 등">
+                                </td>
+
+
+                            </tr>
+
+                            <tr>
+
+                                <th>냉장고</th>
+                                <td>
+
+                                    <input type="radio" name="refrigerator" value="1" onclick="change('refrigerator-specific')">있음
+                                    <input type="radio" name="refrigerator" value="0" onclick="change('refrigerator-specific')" checked="checked">없음
+                                    <input type="text" id="refrigerator-specific" name="refrigerator_specific" class="hidden" placeholder="냉장고 대 수, 종류 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>세탁기</th>
+                                <td>
+                                    <input type="radio" name="washer" value="1" onclick="change('washer-specific')">있음
+                                    <input type="radio" name="washer" value="0" onclick="change('washer-specific')" checked="checked">없음
+                                    <input type="text" id="washer-specific" name="washer_specific" class="hidden" placeholder="크기, 건조기 유무 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>장농</th>
+                                <td>
+                                    <input type="radio" name="closet" value="1" onclick="change('closet-specific')">있음
+                                    <input type="radio" name="closet" value="0" onclick="change('closet-specific')" checked="checked">없음
+                                    <input type="text" id="closet-specific" name="closet_specific" class="hidden" placeholder="대략적인 크기">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>침대</th>
+                                <td>
+                                    <input type="radio" name="bed" value="1" onclick="change('bed-specific')">있음
+                                    <input type="radio" name="bed" value="0" onclick="change('bed-specific')" checked="checked">없음
+                                    <input type="text" id="bed-specific" name="bed_specific" class="hidden" placeholder="사이즈, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>책장</th>
+                                <td>
+                                    <input type="radio" name="bookshelf" value="1" onclick="change('bookshelf-specific')">있음
+                                    <input type="radio" name="bookshelf" value="0" onclick="change('bookshelf-specific')" checked="checked">없음
+                                    <input type="text" id="bookshelf-specific" name="bookshelf_specific" class="hidden" placeholder="크기, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>책상</th>
+                                <td>
+                                    <input type="radio" name="desk" value="1" onclick="change('desk-specific')">있음
+                                    <input type="radio" name="desk" value="0" onclick="change('desk-specific')" checked="checked">없음
+                                    <input type="text" id="desk-specific" name="desk_specific" class="hidden" placeholder="크기, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>거실장</th>
+                                <td>
+                                    <input type="radio" name="tv_table" value="1" onclick="change('tv-table-specific')">있음
+                                    <input type="radio" name="tv_table" value="0" onclick="change('tv-table-specific')" checked="checked">없음
+                                    <input type="text" id="tv-table-specific" name="tv_table_specific" class="hidden" placeholder="크기, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>장식장</th>
+                                <td>
+                                    <input type="radio" name="cabinet" value="1" onclick="change('cabinet-specific')">있음
+                                    <input type="radio" name="cabinet" value="0" onclick="change('cabinet-specific')" checked="checked">없음
+                                    <input type="text" id="cabinet-specific" name="cabinet_specific" class="hidden" placeholder="크기, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>서랍장</th>
+                                <td>
+                                    <input type="radio" name="drawers" value="1" onclick="change('drawers-specific')">있음
+                                    <input type="radio" name="drawers" value="0" onclick="change('drawers-specific')" checked="checked">없음
+                                    <input type="text" id="drawers-specific" name="drawers_specific" class="hidden" placeholder="크기, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>TV</th>
+                                <td>
+                                    <input type="radio" name="tv" value="1" onclick="change('tv-specific')">있음
+                                    <input type="radio" name="tv" value="0" onclick="change('tv-specific')" checked="checked">없음
+                                    <input type="text" id="tv-specific" name="tv_specific" class="hidden" placeholder="인치, 대 수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>식탁</th>
+                                <td>
+                                    <input type="radio" name="table" value="1" onclick="change('table-specific')">있음
+                                    <input type="radio" name="table" value="0" onclick="change('table-specific')" checked="checked">없음
+                                    <input type="text" id="table-specific" name="table_specific" class="hidden" placeholder="크기, 개수 등">
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <th>악기</th>
+                                <td>
+                                    <input type="radio" name="instrument" value="1" onclick="change('instrument-specific')">있음
+                                    <input type="radio" name="instrument" value="0" onclick="change('instrument-specific')" checked="checked">없음
+                                    <input type="text" id="instrument-specific" name="instrument_specific" class="hidden" placeholder="악기 종류 등">
+                                </td>
+
+                            </tr>
+
+
+
+                        </table>
+
+                        <span id="textarea">그 외의 물건</span>
+                        <textarea name="others" placeholder="그 외 부피가 큰 물건이 있는 경우, 기입 부탁드립니다."></textarea>
+
+                    </div>
+
+                        <div id="consent">
+                            <input type="checkbox">개인정보 수집동의
                         </div>
-                        
-                        <div id="specific-form-2">
-                        
-                            <table>
-                                <tr>
-                                    
-                                    <th>소파</th>
-                                    <td>
-                                        <input type="radio" name="sofa" value="1" 
-                                        onclick="change('sofa-specific')">있음
-                                        <input type="radio" name="sofa" value="0" onclick="change('sofa-specific')" checked="checked">없음
-                                        <input type="text" id="sofa-specific" name="sofa_specific" class="hidden" placeholder="몇인용인지, 개수 등">
-                                    </td>
-                                    
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>냉장고</th>
-                                    <td>
-                                        
-                                        <input type="radio" name="refrigerator" value="1" 
-                                        onclick="change('refrigerator-specific')">있음
-                                        <input type="radio" name="refrigerator" value="0" onclick="change('refrigerator-specific')" checked="checked">없음
-                                        <input type="text" id="refrigerator-specific" name="refrigerator_specific" class="hidden" placeholder="냉장고 대 수, 종류 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>세탁기</th>
-                                    <td>
-                                        <input type="radio" name="washer" value="1" 
-                                        onclick="change('washer-specific')">있음
-                                        <input type="radio" name="washer" value="0" onclick="change('washer-specific')" checked="checked">없음
-                                        <input type="text" id="washer-specific" name="washer_specific" class="hidden" placeholder="크기, 건조기 유무 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>장농</th>
-                                    <td>
-                                        <input type="radio" name="closet" value="1" 
-                                        onclick="change('closet-specific')">있음
-                                        <input type="radio" name="closet" value="0" onclick="change('closet-specific')" checked="checked">없음
-                                        <input type="text" id="closet-specific" name="closet_specific" class="hidden" placeholder="대략적인 크기">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>침대</th>
-                                    <td>
-                                        <input type="radio" name="bed" value="1" 
-                                        onclick="change('bed-specific')">있음
-                                        <input type="radio" name="bed" value="0" onclick="change('bed-specific')" checked="checked">없음
-                                        <input type="text" id="bed-specific" name="bed_specific" class="hidden" placeholder="사이즈, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>책장</th>
-                                    <td>
-                                        <input type="radio" name="bookshelf" value="1" 
-                                        onclick="change('bookshelf-specific')">있음
-                                        <input type="radio" name="bookshelf" value="0" onclick="change('bookshelf-specific')" checked="checked">없음
-                                        <input type="text" id="bookshelf-specific" name="bookshelf_specific" class="hidden" placeholder="크기, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>책상</th>
-                                    <td>
-                                        <input type="radio" name="desk" value="1" 
-                                        onclick="change('desk-specific')">있음
-                                        <input type="radio" name="desk" value="0" onclick="change('desk-specific')" checked="checked">없음
-                                        <input type="text" id="desk-specific" name="desk_specific" class="hidden" placeholder="크기, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>거실장</th>
-                                    <td>
-                                        <input type="radio" name="tv_table" value="1" 
-                                        onclick="change('tv-table-specific')">있음
-                                        <input type="radio" name="tv_table" value="0" onclick="change('tv-table-specific')" checked="checked">없음
-                                        <input type="text" id="tv-table-specific" name="tv_table_specific" class="hidden" placeholder="크기, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>장식장</th>
-                                    <td>
-                                        <input type="radio" name="cabinet" value="1" 
-                                        onclick="change('cabinet-specific')">있음
-                                        <input type="radio" name="cabinet" value="0" onclick="change('cabinet-specific')" checked="checked">없음
-                                        <input type="text" id="cabinet-specific" name="cabinet_specific" class="hidden" placeholder="크기, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>서랍장</th>
-                                    <td>
-                                        <input type="radio" name="drawers" value="1" 
-                                        onclick="change('drawers-specific')">있음
-                                        <input type="radio" name="drawers" value="0" onclick="change('drawers-specific')" checked="checked">없음
-                                        <input type="text" id="drawers-specific" name="drawers_specific" class="hidden" placeholder="크기, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>TV</th>
-                                    <td>
-                                        <input type="radio" name="tv" value="1" 
-                                        onclick="change('tv-specific')">있음
-                                        <input type="radio" name="tv" value="0" onclick="change('tv-specific')" checked="checked">없음
-                                        <input type="text" id="tv-specific" name="tv_specific" class="hidden" placeholder="인치, 대 수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>식탁</th>
-                                    <td>
-                                        <input type="radio" name="table" value="1" 
-                                        onclick="change('table-specific')">있음
-                                        <input type="radio" name="table" value="0" onclick="change('table-specific')" checked="checked">없음
-                                        <input type="text" id="table-specific" name="table_specific" class="hidden" placeholder="크기, 개수 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                <tr>
-                                    
-                                    <th>악기</th>
-                                    <td>
-                                        <input type="radio" name="instrument" value="1" 
-                                        onclick="change('instrument-specific')">있음
-                                        <input type="radio" name="instrument" value="0" onclick="change('instrument-specific')" checked="checked">없음
-                                        <input type="text" id="instrument-specific" name="instrument_specific" class="hidden" placeholder="악기 종류 등">
-                                    </td>
-                                
-                                </tr>
-                                
-                                
-                            
-                            </table>
-                            
-                            <span id="textarea">그 외의 물건</span>
-                            <textarea name="others" placeholder="그 외 부피가 큰 물건이 있는 경우, 기입 부탁드립니다."></textarea>
-                        
-                        </div>
-                        <checkbox>개인정보 수집동의</checkbox>
-                        
-                        <input type="submit" value="견적요청 보내기">
-                        
-                    </form>
-                    
-                    
-                
-                </div>
-            
-            </div>
-      
-            
-         
-        </main>
-        
-        <footer>
-            <div id="footer-inner">
-            
-                삼일 익스프레스 | 대표: 이치웅 <br>
-                사업자 등록번호: 639-75-00072<br>
-                통신판매업 신고:<br>
-                대표번호: 053-965-3124<br>
-                주소: 대구광역시 수성구 효행로 2길 31<br>
-                Copyright &copy; 삼일익스프레스. All rights reserved.
-                    
-            </div>
-            
-        
-        </footer>
 
-        <script type="text/javascript" src="../javascript/main.js"></script>
-        
-        <!-- javascript 불러오기 -->
-        <script type="text/javascript" src="../javascript/inquiry.js"></script>
-    
-    
-    </body>
+                        <input id="submit-button" type="submit" value="견적요청 보내기">
+
+                </form>
+
+
+
+            </div>
+
+        </div>
+
+
+
+    </main>
+
+    <footer>
+        <div id="footer-inner">
+
+            삼일 익스프레스 | 대표: 이치웅 <br>
+            사업자 등록번호: 639-75-00072<br>
+            통신판매업 신고:<br>
+            대표번호: 053-965-3124<br>
+            주소: 대구광역시 수성구 효행로 2길 31<br>
+            Copyright &copy; 삼일익스프레스. All rights reserved.
+
+        </div>
+
+
+    </footer>
+
+    <script type="text/javascript" src="../javascript/main.js"></script>
+
+    <!-- javascript 불러오기 -->
+    <script type="text/javascript" src="../javascript/inquiry.js"></script>
+
+
+</body>
 
 </html>

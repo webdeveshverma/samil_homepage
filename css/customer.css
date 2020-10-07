@@ -30,3 +30,36 @@ h3 {
     text-align: left;
     font-size: 20px;
 }
+
+#phone {
+    
+    color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    background-color: RGB(147, 170, 206);
+}
+
+#phone img {
+    
+    display: block;
+    width: 50px;
+    color: white;
+}
+
+#kakao {
+    
+    color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    background-color: RGB(176, 204, 218);
+    
+}
+
+#kakao img {
+    
+    display: block;
+    width: 50px;
+    color: white;
+}
