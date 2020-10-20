@@ -55,6 +55,11 @@ h3 {
     
 }
 
+article {
+    
+    line-height: 24px;
+}
+
 @media screen and (min-width: 540px) and (max-width: 800px) {
     
     .services img {

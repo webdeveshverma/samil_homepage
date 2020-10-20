@@ -1,322 +1,318 @@
 <html>
 
-    <head> 
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="naver-site-verification" content="de87415b25b601e8b25b15c24191a71d874d3e39" />
-        
-        <title>삼일 이사|익스프레스</title>
-        
-        
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/style-media.css">
-        
-        <!-- daum주소 검색 -->
-        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script type="text/javascript">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="naver-site-verification" content="de87415b25b601e8b25b15c24191a71d874d3e39" />
+
+    <title>삼일 이사|익스프레스</title>
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-media.css">
+
+    <!-- daum주소 검색 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript">
         //now 주소 용
 
-function DaumPostcode_now() {
-    new daum.Postcode({
-        oncomplete: function(data) {
+        function DaumPostcode_now() {
+            new daum.Postcode({
+                oncomplete: function(data) {
 
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var extraRoadAddr = ''; // 참고 항목 변수 
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수 
 
-            var completeAddr = '';
+                    var completeAddr = '';
 
-            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    var completeAddr = roadAddr + extraRoadAddr;
+
+                    document.getElementById('simple_now_address').value = completeAddr;
+
+
+
                 }
-            // 건물명이 있고, 공동주택일 경우 추가한다.
-            if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-            if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-                    
-            var completeAddr = roadAddr + extraRoadAddr;
-                    
-            document.getElementById('simple_now_address').value = completeAddr;
-                        
-
-
-            }
-        }).open();
-    }
+            }).open();
+        }
 
         //after 주소 용
 
-    function DaumPostcode_after() {
-    new daum.Postcode({
-        oncomplete: function(data) {
+        function DaumPostcode_after() {
+            new daum.Postcode({
+                oncomplete: function(data) {
 
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var extraRoadAddr = ''; // 참고 항목 변수 
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수 
 
-            var completeAddr = '';
+                    var completeAddr = '';
 
-            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    var completeAddr = roadAddr + extraRoadAddr;
+
+                    document.getElementById('simple_after_address').value = completeAddr;
+
+
+
                 }
-            // 건물명이 있고, 공동주택일 경우 추가한다.
-            if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-            if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-                    
-            var completeAddr = roadAddr + extraRoadAddr;
-                    
-            document.getElementById('simple_after_address').value = completeAddr;
-                        
+            }).open();
+        }
+
+    </script>
 
 
-            }
-        }).open();
-    }
-        
-        
-        </script>
-        
-        
-    </head>
-    
-    
-    <body>
-        
-        <header>
-            <div id="logo-wrapper">
-                <a href="#">
+</head>
+
+
+<body>
+
+    <header>
+        <div id="logo-wrapper">
+            <a href="#">
                 <img src="image/logo.svg">
                 <h1><span>삼일</span> 이사|익스프레스</h1>
-                </a>
-            
-            </div>
-            <div id="menu-800">
-                
-                <ul>
-                    
-                    <li><a href="html/service.html">이사 서비스</a></li>
-                    <li><a href="html/cleaning.html">입주 청소</a></li>
-                    <li><a href="html/information.html">이사 정보</a></li>
-                    <li><a href="html/customer.html">고객센터</a></li>
-                    <li><a href="html/inquiry.html">견적 문의 게시판</a></li>
-                    
-                </ul>
-            
-            </div>
-            <img id="hamburger" src="image/bars-solid.svg">
-        
-        </header>
-        
-        <div id="menu-toggle" class="hide">
-            <div><img id="menu-close-button" src="image/close-image.png"></div>
+            </a>
+
+        </div>
+        <div id="menu-800">
+
             <ul>
+
                 <li><a href="html/service.html">이사 서비스</a></li>
                 <li><a href="html/cleaning.html">입주 청소</a></li>
                 <li><a href="html/information.html">이사 정보</a></li>
                 <li><a href="html/customer.html">고객센터</a></li>
                 <li><a href="html/inquiry.html">견적 문의 게시판</a></li>
+
             </ul>
-        
+
         </div>
-        
-        <main>
-            <div id="main-wrapper">
-            
+        <img id="hamburger" src="image/bars-solid.svg">
+
+    </header>
+
+    <div id="menu-toggle" class="hide">
+        <div><img id="menu-close-button" src="image/close-image.png"></div>
+        <ul>
+            <li><a href="html/service.html">이사 서비스</a></li>
+            <li><a href="html/cleaning.html">입주 청소</a></li>
+            <li><a href="html/information.html">이사 정보</a></li>
+            <li><a href="html/customer.html">고객센터</a></li>
+            <li><a href="html/inquiry.html">견적 문의 게시판</a></li>
+        </ul>
+
+    </div>
+
+    <main>
+        <div id="main-wrapper">
+
             <!--움직이는 슬라이드 5장-->
             <div id="slide-wrapper" style="background-image: url(image/slide-1.jpg);
             background-size: cover;">
                 <div id="slide-text-wrapper">
                     <div id="slide-text">
-                        <p>대통령후보자가 1인일 때에는 그 득표수가 선거권자 총수의 3분의 1 이상이 아니면 대통령으로 당선될 수 없다. 국회의원은 국가이익을 우선하여 양심에 따라 직무를 행한다.
+                        <p id="js-text">대구/경북지역 이사 전문업체!
                         </p>
                     </div>
-                
+
                 </div>
             </div>
-            
-            
+
+
             <!--간편 견적신청 form -->
-          
+
             <div id="apply-wrapper">
-                
+
                 <div id="apply-wrapper-inner">
-                <h2>간편 견적 요청하기</h2>
+                    <h2>간편 견적 요청하기</h2>
 
-                        <!--견적요청 form 시작-->
+                    <!--견적요청 form 시작-->
 
-                        <div id="simple-form-wrapper">
+                    <div id="simple-form-wrapper">
                         <form method="POST" action="./php/simple_form.php">
                             <div id="simple-form-12">
-                            <div id="simple-form-1">
-                                <table>
+                                <div id="simple-form-1">
+                                    <table>
 
-                                    <tr>
-                                    <th>이사 종류</th>
-                                    <td>
-                                        <select name="24_kind">
+                                        <tr>
+                                            <th>이사 종류</th>
+                                            <td>
+                                                <select name="24_kind">
 
-                                            <option value="가정이사">가정이사</option>
-                                            <option value="원룸이사">원룸이사</option>
-                                            <option value="사무실 이사">사무실 이사</option>
-                                            <option value="차량만 이용">차량만 이용</option>
+                                                    <option value="가정이사">가정이사</option>
+                                                    <option value="원룸이사">원룸이사</option>
+                                                    <option value="사무실 이사">사무실 이사</option>
+                                                    <option value="차량만 이용">차량만 이용</option>
 
-                                        </select>
-                                    </td>
-                                    </tr>
+                                                </select>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                    <th>서비스 종류</th>
-                                    <td>
-                                        <select name="service_kind">
+                                        <tr>
+                                            <th>서비스 종류</th>
+                                            <td>
+                                                <select name="service_kind">
 
-                                            <option value="포장이사">포장이사</option>
-                                            <option value="일반이사">일반이사</option>
-                                            <option value="보관이사">보관이사</option>
+                                                    <option value="포장이사">포장이사</option>
+                                                    <option value="일반이사">일반이사</option>
+                                                    <option value="보관이사">보관이사</option>
 
-                                        </select>
-                                    </td>
-                                    </tr>
+                                                </select>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                    <th>이사 날짜</th>
-                                    <td><input type="date" name="moving_date" ></td>
-                                    </tr>
+                                        <tr>
+                                            <th>이사 날짜</th>
+                                            <td><input type="date" name="moving_date"></td>
+                                        </tr>
 
-                                </table>                
+                                    </table>
 
 
-                            </div>
+                                </div>
 
-                            <div id="simple-form-2">
-                                <table>
+                                <div id="simple-form-2">
+                                    <table>
 
-                                    <tr>
-                                        <th>고객명</th>
-                                        <td><input id="simple-customer-name" name="customer_name" type="text"></td>
-                                    </tr>
+                                        <tr>
+                                            <th>고객명</th>
+                                            <td><input id="simple-customer-name" name="customer_name" type="text" required></td>
+                                        </tr>
 
-                                    <tr>
-                                    <th>연락처</th>
-                                    <td>
+                                        <tr>
+                                            <th>연락처</th>
+                                            <td>
 
-                                        <select name="phone_1">
+                                                <select name="phone_1">
 
-                                            <option value="010" selectec>010</option>
-                                            <option value="011">011</option>
-                                            <option value="019">019</option>
-                                            <option value="016">016</option>
-                                            <option value="017">017</option>
-                                            <option value="018">018</option>
+                                                    <option value="010" selectec>010</option>
+                                                    <option value="011">011</option>
+                                                    <option value="019">019</option>
+                                                    <option value="016">016</option>
+                                                    <option value="017">017</option>
+                                                    <option value="018">018</option>
 
-                                        </select> -  
-                                        <input name="phone_2" type="text" class="phone"> -
-                                        <input name="phone_3" type="text" class="phone">
+                                                </select> -
+                                                <input name="phone_2" type="text" class="phone" required> -
+                                                <input name="phone_3" type="text" class="phone" required>
 
-                                    </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <th>현주소</th>
-                                        <td>
-                                            <input type="text" id="simple_now_address" name="simple_now_address"
-                                            width="150">
-                                            <input id="now_address_button" type="button" onclick="DaumPostcode_now()" value="주소찾기"><br>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <th>현주소</th>
+                                            <td>
+                                                <input type="text" id="simple_now_address" name="simple_now_address" required>
+                                                <input id="now_address_button" type="button" onclick="DaumPostcode_now()" value="주소찾기"><br>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <th>도착지</th>
-                                        <td>
-                                            <input type="text" id="simple_after_address" name="simple_after_address" width="150">
-                                            <input id="after_address_button" type="button" onclick="DaumPostcode_after()" value="주소찾기"><br>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <th>도착지</th>
+                                            <td>
+                                                <input type="text" id="simple_after_address" name="simple_after_address" required>
+                                                <input id="after_address_button" type="button" onclick="DaumPostcode_after()" value="주소찾기"><br>
+                                            </td>
+                                        </tr>
 
-                                </table>
+                                    </table>
 
-                            </div>
+                                </div>
                             </div>
 
                             <div id="inf-cons">
-                                <input type="checkbox">개인정보수집동의
+                                <input type="checkbox" required>개인정보수집동의
                             </div>
 
-                            <input id="simple-submit-button" type="submit" value="견적요청"> 
+                            <input id="simple-submit-button" type="submit" value="견적요청">
 
 
                         </form>
 
-                            <button id="spe-button-s" onclick = "location.href = 'html/inquiry.html'">상세한 견적요청 바로가기</button>
+                    </div>
+
+                    <!--견적요청 form 완료-->
+
+                </div>
+
+            </div>
+
+
+            <div id="phone-800">
+                <div id="phone-800-inner">
+
+                    <div id="phone-800-up">
+
+                        <div id="phone-up-inner">
+
+                            <img src="image/phone-image.png">
+                            <span>전화상담</span>
+                            <span>1661-2755</span>
+                            <div>본점 053-965-3124</div>
 
                         </div>
 
-                        <!--견적요청 form 완료-->
-                
-                </div>
-                
-            </div>
-            
-        
-            <div id="phone-800">
-               <div id="phone-800-inner">
-                
-                <div id="phone-800-up">
-                    
-                    <div id="phone-up-inner">
-                        
-                        <img src="image/phone-image.png">
-                        <span>전화상담</span>
-                        <span>1661-2755</span>
-                        <div>본점 053-965-3124</div>
-                        
+
                     </div>
-                    
-                    
-                </div>
-                
-                <div id="phone-800-middle">
-                    
-                    <div id="phone-middle-inner">
-                        <img src="image/kakao-logo.png">
-                        <span>24시간 카톡상담</span>
-                        <span>ID: 1234455</span>
+
+                    <div id="phone-800-middle">
+
+                        <div id="phone-middle-inner">
+                            <img src="image/kakao-logo.png">
+                            <span>24시간 카톡상담</span>
+                            <span>ID: 1234455</span>
+                        </div>
+
                     </div>
-                    
-                </div>
-                
-                <div id="phone-800-down">
-                    
-                    <div id="phone-down-inner">
-                        <button onclick = "location.href = 'html/inquiry.html'">상세한 견적요청 바로가기</button>
+
+                    <div id="phone-800-down">
+
+                        <div id="phone-down-inner">
+                            <button onclick="location.href = 'html/inquiry.html'">상세한 견적요청 바로가기</button>
+                        </div>
+
+
                     </div>
-                    
-                
-                </div>
-                
-                
+
+
                 </div>
             </div>
-            
-            
+
+
             <!--서비스 설명 wrapper -->
-            
+
             <div id="service-wrapper-s">
                 <h2 class="blue">서비스 소개</h2>
                 <h3>고객만족을 최우선으로 생각합니다.</h3>
@@ -330,9 +326,9 @@ function DaumPostcode_now() {
                     <article></article>
                     <article></article>
                 </div>
-        
+
             </div>
-        
+
             <div id="service-wrapper-b">
                 <h2 class="blue">서비스 소개</h2>
                 <h3>고객만족을 최우선으로 생각합니다.</h3>
@@ -345,54 +341,73 @@ function DaumPostcode_now() {
 
                 </div>
             </div>
-            
-        
+
+
         </div>
-        
-            
-        </main>
-        
-        <footer>
-            <div id="footer-inner">
-            
-                삼일 익스프레스 | 대표: 이치웅 <br>
-                사업자 등록번호: 639-75-00072<br>
-                통신판매업 신고:<br>
-                대표번호: 053-965-3124<br>
-                주소: 대구광역시 수성구 효행로 2길 31<br>
-                Copyright &copy; 삼일익스프레스. All rights reserved.
-                    
-            </div>
-            
-        
-        </footer>
-        
-        <div id="foot-wrapper">
-            <div id="foot-wrapper-inner">
+
+
+    </main>
+
+    <footer>
+        <div id="footer-inner">
+
+            삼일 익스프레스 | 대표: 이치웅 <br>
+            사업자 등록번호: 639-75-00072<br>
+            통신판매업 신고:<br>
+            대표번호: 053-965-3124<br>
+            주소: 대구광역시 수성구 효행로 2길 31<br>
+            Copyright &copy; 삼일익스프레스. All rights reserved.
+
+        </div>
+
+
+    </footer>
+
+    <div id="foot-wrapper">
+        <div id="foot-wrapper-inner">
+            <a href="tel:1661-2755">
                 <div id="foot-left">
-                    
-                    <img src="image/phone-image.png">
-                    <span>전화상담<br>1661-2755</span>
-                    
+                    <div id="foot-left-inner">
+                       
+                        <span>전화상담<br>1661-2755</span>
+
+                    </div>
                 </div>
+            </a>
+
+            <a href="html/inquiry.html">
+                <div id="foot-middle">
+
+                    <div id="foot-middle-inner">
+                        <span>상세견적요청<br>바로가기</span>
+                    </div>
+
+                </div>
+            </a>
+
+            <a href="https://open.kakao.com/o/sfYSdzCc">
                 <div id="foot-right">
-                    
-                    <span>24시간<br>카톡상담</span>
-                    <img src="image/kakao-logo.png">
-                    
+                    <div id="foot-right-inner">
+
+                        <span>1:1 카톡<br>오픈채팅상담</span>
+                        <img src="image/kakao-logo.png">
+
+                    </div>
+
                 </div>
-            </div>
+            </a>
         </div>
-        
-        
-        <!-- javascript 불러오기 -->
-        <script type="text/javascript" src="javascript/main.js"></script>
-        
-        <script type="text/javascript" src="javascript/slide.js"></script>
-  
-        
-    
-    
-    </body>
+    </div>
+
+
+    <!-- javascript 불러오기 -->
+    <script type="text/javascript" src="javascript/main.js"></script>
+
+    <script type="text/javascript" src="javascript/slide.js"></script>
+
+
+
+
+</body>
 
 </html>

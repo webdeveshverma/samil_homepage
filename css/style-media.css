@@ -2,44 +2,40 @@
 @media screen and (min-width: 450px) and (max-width: 800px) {
     footer {
         margin-bottom: 75px;
+        
     }
     
     /*고정 foot bar */
     #foot-wrapper {
         height: 75px;
+        font-size: 15px;
+        color: #84796b;
+        line-height: 22px;
+
+        
+    }
+    #foot-left {
+        
+        height: 75px;
+    
     }
     
-    #foot-left, #foot-right{
+    #foot-middle {
+        
         height: 75px;
     }
     
-    #foot-left img {
-        
-        height: 50px;
-        margin-top: 12px;
-        margin-left: 25px;
+    #foot-middle-inner {
+        height: 75px;
     }
     
-    #foot-left span {
+    #foot-right {
         
-        font-size: 18px;
-        margin-top: 22px;
-        margin-right: 20px;
-    }
+        height: 75px;
     
-    #foot-right img {
-        
-        height: 50px;
-        margin-top: 12px;
-        margin-right: 25px;
     }
-    
-    #foot-right span {
-        
-        font-size: 18px;
-        margin-top: 22px;
-        margin-left: 20px;
-    }
+    /*고정 foot bar은 여기에서만 고치면 됨!*/
+
 }
 
 @media screen and (min-width: 640px) and (max-width: 800px) {

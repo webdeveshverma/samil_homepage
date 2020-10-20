@@ -38,13 +38,23 @@ h3 {
     width: 200px;
     border-radius: 100px;
     background-color: RGB(147, 170, 206);
+    margin-top: 20px;
+    text-align: center;
+    line-height: 22px;
+
 }
 
+#phone-inner {
+    padding: 40px;
+    
+}
 #phone img {
     
     display: block;
+    margin: 0 auto;
     width: 50px;
     color: white;
+    margin-bottom :10px;
 }
 
 #kakao {
@@ -54,12 +64,46 @@ h3 {
     width: 200px;
     border-radius: 100px;
     background-color: RGB(176, 204, 218);
+    margin-top: 20px;
+    text-align: center;
+    line-height: 22px;
+
     
+}
+
+#kakao-inner {
+    padding: 40px;
 }
 
 #kakao img {
     
     display: block;
+    margin: 0 auto;
     width: 50px;
     color: white;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 500px) {
+    
+    #phone {
+        
+        float: left;
+    }
+    
+    #kakao {
+        
+        float: left;
+    }
+    
+    
+    #circle-box {
+        
+        clear: both;
+    }
+    
+    #main-wrapper {
+        
+        clear: both;
+    }
 }

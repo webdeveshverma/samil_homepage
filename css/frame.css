@@ -121,15 +121,16 @@ h1 span {
     right: 0;
     width: 230px;
     height: 100%;
-    background-color: RGB(162, 202, 242);
+    background-color: white;
     padding-left: 15px;
     padding-right: 15px;
+    border-left: 2px solid RGB(119, 107, 94);
     
 }
 
 #menu-toggle div:first-child {
     height: 55px;
-    border-bottom: 1px solid RGB(236, 236, 236);
+     border-bottom: 1px solid RGB(182, 167, 148);
 }
 
 #menu-toggle div:first-child img {
@@ -143,7 +144,7 @@ h1 span {
 
 #menu-toggle #menu-close-button:hover {
     
-    background-color: RGB(121, 166, 209);
+    background-color: RGB(182, 167, 148);
 }
 
 #menu-toggle li {
@@ -151,12 +152,12 @@ h1 span {
     padding-left: 15px;
     height: 50px;
     line-height: 50px;
-    border-bottom: 1px solid RGB(236, 236, 236);
+     border-bottom: 1px solid RGB(182, 167, 148);
 }
 
 #menu-toggle li:hover {
     
-    background-color: RGB(121, 166, 209);
+    background-color: RGB(182, 167, 148);
 }
 
 #menu-toggle.hide {
