@@ -211,6 +211,18 @@ h1 span {
 
 }
 
+#js-text {
+    
+    line-height: 25px;
+    
+}
+#js-text strong {
+    
+    font-size: 20px;
+    font-weight: bold;
+    color: RGB(247, 189, 42);
+}
+
 
 
 

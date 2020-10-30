@@ -2,9 +2,19 @@
 @media screen and (min-width: 450px) and (max-width: 800px) {
     footer {
         margin-bottom: 75px;
-        
+
     }
-    
+
+    /* slide */
+    #js-text {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    #js-text strong {
+        font-size: 25px;
+    }
+
     /*고정 foot bar */
     #foot-wrapper {
         height: 75px;
@@ -12,343 +22,365 @@
         color: #84796b;
         line-height: 22px;
 
-        
+
     }
+
     #foot-left {
-        
+
         height: 75px;
-    
+
     }
-    
+
     #foot-middle {
-        
+
         height: 75px;
     }
-    
+
     #foot-middle-inner {
         height: 75px;
     }
-    
+
     #foot-right {
-        
+
         height: 75px;
-    
+
     }
+
     /*고정 foot bar은 여기에서만 고치면 됨!*/
 
 }
 
 @media screen and (min-width: 640px) and (max-width: 800px) {
-    
-     /*header 부분 */
-    
+
+    /*header 부분 */
+
     header {
-        
+
         height: 55px;
     }
-    
+
     #logo-wrapper img {
-        
+
         height: 43px;
         margin-top: 5px;
     }
-    
+
     h1 {
-        
+
         font-size: 20px;
         margin-top: 17px;
         margin-left: 8px;
     }
-    
-    h1  span {
+
+    h1 span {
         font-size: 30px;
     }
-    
+
     /**
      main 시작
     */
 
     /*slide-wrapper */
-     #slide-wrapper {
-        
+    #slide-wrapper {
+
         height: 350px;
     }
-    
+
     /*apply-wrapper*/
-    
-  
+
+
     #simple-form-1 {
         float: left;
         margin-right: 2rem;
     }
+
     #inf-cons {
         float: left;
     }
-    
+
     input[name=moving_date] {
         width: 140px;
     }
-    
+
     input#simple_now_address,
-    input#simple_after_address{
+    input#simple_after_address {
         width: 120px;
     }
-   
-    
+
+
     /*service-wrapper */
     #service-wrapper {
         height: 500px;
     }
-    
+
     /*footer */
     footer {
-        
+
         padding: 2rem;
         font-size: 13px;
         text-align: center;
 
     }
-    
+
 }
 
 
 
 @media screen and (min-width: 801px) {
-    
+
     /*header 부분 */
-    
+
     header {
-        
+
         height: 55px;
     }
-    
+
     #logo-wrapper img {
-        
+
         height: 43px;
         margin-top: 5px;
     }
-    
+
     h1 {
-        
+
         font-size: 20px;
         margin-top: 17px;
         margin-left: 8px;
     }
-    
-    h1  span {
+
+    h1 span {
         font-size: 30px;
     }
-    
+
     /**
      main 시작
     */
 
     /*slide-wrapper */
-     #slide-wrapper {
-        
+    #slide-wrapper {
+
         height: 500px;
     }
-    
-     @media screen and (min-width: 800px) {
-         /*apply-wrapper*/
-    
-    #apply-wrapper {
-        width: 65%;
-        float: left;
-        
-    }
-    
-    #simple-form-1 {
-        float: left;
-        margin-right: 1rem;
-    }
-    
-    #spe-button-s {
-        display: none;
-    }
-         
-    #phone-800{
-        
-        display: block;
-
-    }
-         
-    /*footer */
-    footer {
-        font-size: 13px;
-        padding: 2rem;
-        text-align: center;
-        margin-bottom: 0;
-        
-    }
-    
-    #foot-wrapper {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 800px) and (max-width: 900px) {
-    
-    #phone-up-inner {
-        padding-left: 7px;
-    }
-    
-    #phone-middle-inner {
-        padding-left: 7px;
-    }
-    
-    #phone-down-inner {
-        padding-left: 0px;
-    }
-}
-
-@media screen and (min-width: 900px) {
-    
-   /*header 부분 */
-    
-    header {
-        
-        height: 80px;
-    }
-
-    
-    #logo-wrapper img {
-        
-        height: 50px;
-        margin-top: 15px;
-    }
-    
-    h1 {
-        
-        font-size: 24px;
-        margin-top: 25px;
-    }
-    
-    h1  span {
-        font-size: 35px;
-    }
-    
-    #hamburger {
-        display: none;
-    }
-    
-    #menu-800 {
-        display: block;
-    } 
-    
-    /*service-wrapper   부분 */
- 
-    #service-wrapper-s {
-        display: none;
-    }
-    
-    #service-wrapper-b {
-        
-        clear: both;
-        display: block;
-        padding: 2rem 1rem 2rem 1rem;
-        overflow: hidden;
-    
-    }
-    
-    #service-b {
-        
-        margin: 30px 20px 20px 40px;
-        display: flex;
-        justify-content: space-around;
-        
-    }
-    
-    #service-b div {
-        
-        width: 20%;
-        padding-bottom: 15%;
-        background-color: antiquewhite;
-    }
-    
-    /*서비스 설명 배경사진 */
-    #service-b div:first-child {
-        
-        background-image: url("../image/service/service-home.jpeg");
-        background-size: contain;
-    }
-    
-    #service-b div:nth-child(2) {
-        
-        background-image: url("../image/service/service-office.jpeg");
-        background-size: contain;
-    }
-    
-    #service-b div:nth-child(3) {
-        
-        background-image: url("../image/service/service-box.jpeg");
-        background-size: contain;
-    }
-    
-    #service-b div:last-child {
-        
-        background-image: url("../image/service/service-cleaning.jpeg");
-        background-size: contain;
-    }
-    /*서비스 설명 배경사진 끝*/
-
-}
-/*여기부터는 apply 크기 조절!*/
 
 
-@media screen and (min-width: 800px) and (max-width: 1000px) {
-    
-         
-     #simple-customer-name {
-            
-         width: 120px;
-    }
-         
-    input[name=moving_date] {
-        width: 100px;
-    }
-    
-    input#simple_now_address,
-    input#simple_after_address{
-        width: 100px;
-    }
-   
-    
-    input, select {
-    
-    padding: 0.3rem 0.4rem 0.3rem 0.4rem;
-    }
-    
-    select[name=phone_1] {
-    
-        width: 47px;
-    }    
-         
-    .phone {
-        width: 43px;
-        
-    }
-    #inf-cons {
-        float: left;
-    }
-    
-    
 
-    
-}
 
-@media screen and (min-width: 1001px) {
-    
-    input[name=moving_date] {
-        width: 150px;
+    @media screen and (min-width: 800px) {
+        /*apply-wrapper*/
+
+        #apply-wrapper {
+            width: 65%;
+            float: left;
+
+        }
+
+        #simple-form-1 {
+            float: left;
+            margin-right: 1rem;
+        }
+
+        #spe-button-s {
+            display: none;
+        }
+
+        #phone-800 {
+
+            display: block;
+
+        }
+
+        /* slide */
+        #js-text {
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        #js-text strong {
+            font-size: 25px;
+        }
+
+
+
+        /*footer */
+        footer {
+            font-size: 13px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 0;
+
+        }
+
+        #foot-wrapper {
+            display: none;
+        }
     }
-    
-    input#simple_now_address,
-    input#simple_after_address{
-        width: 140px;
+
+    @media screen and (min-width: 800px) and (max-width: 900px) {
+
+        #phone-up-inner {
+            padding-left: 7px;
+        }
+
+        #phone-middle-inner {
+            padding-left: 7px;
+        }
+
+        #phone-down-inner {
+            padding-left: 0px;
+        }
     }
-    
-   
-    
-    
-}
+
+    @media screen and (min-width: 900px) {
+
+        /*header 부분 */
+
+        header {
+
+            height: 80px;
+        }
+
+
+        #logo-wrapper img {
+
+            height: 50px;
+            margin-top: 15px;
+        }
+
+        h1 {
+
+            font-size: 24px;
+            margin-top: 25px;
+        }
+
+        h1 span {
+            font-size: 35px;
+        }
+
+        #hamburger {
+            display: none;
+        }
+
+        #menu-800 {
+            display: block;
+        }
+
+        /*service-wrapper   부분 */
+
+        #service-wrapper-s {
+            display: none;
+        }
+
+        #service-wrapper-b {
+
+            clear: both;
+            display: block;
+            padding: 2rem 1rem 2rem 1rem;
+            overflow: hidden;
+
+        }
+
+        #service-b {
+
+            margin: 30px 20px 20px 40px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        #service-b div {
+
+            width: 20%;
+            padding-bottom: 15%;
+            background-color: antiquewhite;
+        }
+
+        /*서비스 설명 배경사진 */
+        #service-b div:first-child {
+
+            background-image: url("../image/service/service-home.jpeg");
+            background-size: contain;
+        }
+
+        #service-b div:nth-child(2) {
+
+            background-image: url("../image/service/service-office.jpeg");
+            background-size: contain;
+        }
+
+        #service-b div:nth-child(3) {
+
+            background-image: url("../image/service/service-box.jpeg");
+            background-size: contain;
+        }
+
+        #service-b div:last-child {
+
+            background-image: url("../image/service/service-cleaning.jpeg");
+            background-size: contain;
+        }
+
+        /*서비스 설명 배경사진 끝*/
+
+    }
+
+    /*여기부터는 apply 크기 조절!*/
+
+
+    @media screen and (min-width: 800px) and (max-width: 1000px) {
+
+
+        #simple-customer-name {
+
+            width: 120px;
+        }
+
+        input[name=moving_date] {
+            width: 100px;
+        }
+
+        input#simple_now_address,
+        input#simple_after_address {
+            width: 100px;
+        }
+
+
+        input,
+        select {
+
+            padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+        }
+
+        select[name=phone_1] {
+
+            width: 47px;
+        }
+
+        .phone {
+            width: 43px;
+
+        }
+
+        #inf-cons {
+            float: left;
+        }
+
+
+
+
+    }
+
+    @media screen and (min-width: 1001px) {
+
+        input[name=moving_date] {
+            width: 150px;
+        }
+
+        input#simple_now_address,
+        input#simple_after_address {
+            width: 140px;
+        }
+
+
+
+
+    }
